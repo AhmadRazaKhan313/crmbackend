@@ -1,0 +1,14 @@
+# Gunicorn configuration for production
+# Run: gunicorn -c gunicorn.conf.py config.wsgi:application
+
+bind            = "0.0.0.0:8000"
+workers         = 3
+worker_class    = "sync"
+worker_connections = 1000
+timeout         = 30
+keepalive       = 2
+max_requests    = 1000
+max_requests_jitter = 50
+accesslog       = "logs/access.log"
+errorlog        = "logs/error.log"
+loglevel        = "warning"
